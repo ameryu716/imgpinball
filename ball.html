@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ball.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+    <title>balls</title>
+</head>
+<body>
+    <div class="border">
+        <div id="ball">
+            <div id="imgprev"></div>
+            <label for="imguploads" id="uploadlabel">
+                <i class="fas fa-images imageicon"></i>
+                <i class="fas fa-plus imageplus-icon"></i>
+                <input type="file" name="imguploads" id="imguploads" accept="image/*">
+            </label>
+        </div>
+        <div id="operator">
+            <button id="move">動け</button>
+            <button id="stop">止まれ</button>
+        </div>
+    </div>
+    <script>
+        if (navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('iPad') > 0 || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+            //スマートフォン時に実行したいjs
+            const s = document.createElement("script");
+            // s.type = "module";
+            s.src = "./mball.js";//読み込むファイル
+            document.body.appendChild(s);
+        }else{
+            const s = document.createElement("script");
+            // s.type = "module";
+            s.src = "./ball.js";//読み込むファイル
+            document.body.appendChild(s);
+        }
+    </script>
+</body>
+</html>

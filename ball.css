@@ -1,0 +1,136 @@
+body {
+    margin: 6px 8px;
+    overflow: hidden;
+}
+.border {
+    width: 1350px;
+    height: 600px;
+    border: solid 10px red;
+    box-sizing: border-box;
+    position: relative;
+}
+#ball {
+    transition: 0.05s;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    /* background-color: #000; */
+    border: solid 1px green;
+    transform-origin: center;
+    min-height: 100px;
+    min-width: 100px;
+}
+
+#ball #imgprev {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    overflow: hidden;
+}
+#imguploads {
+    display: none;
+}
+#uploadlabel {
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+}
+.imageplus-icon {
+    opacity: 0;
+    transition: 0.2s;
+    position: absolute;
+    font-size: 25px;
+    top: 18%;
+    left: 54%;
+}
+#uploadlabel:hover {
+    opacity: 0.7;
+}
+#uploadlabel:hover .imageplus-icon {
+    opacity: 1;
+    color: steelblue;
+}
+#uploadlabel:hover .imageicon{
+    color: lightblue;
+    transform: scale(1.3);
+    transition: 0.5s;
+}
+#uploadlabel:not(:hover) .imageicon {
+    transition: 0.5s;
+}
+.imageicon {
+    display: none;
+    font-size: 40px;
+    padding: 20px 0;
+    margin: 8px 24px;
+    color: #0000008c;
+}
+
+#ball img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+#operator {
+    display: none;
+}
+
+@media screen and (max-width: 480px){
+    body {
+        margin: 0;
+    }
+    .border {
+        width: 100vw;
+        height: 100vh;
+        border: solid 5px red;
+    }
+    #ball {
+        width: 100px;
+        height: 100px;
+        min-height: 100px;
+        min-width: 100px;
+    }
+    #ball img{
+        width: 100px;
+        height: 100px;
+    }
+    .imageplus-icon {
+        font-size: 32px;
+    }
+    .imageicon {
+        font-size: 38px;
+        padding: 25px 0;
+        margin: 8px 28px;
+    }
+    #operator {
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+        display: flex;
+    }
+    #operator button {
+        width: 90px;
+        height: 60px;
+        border: none;
+        font-size: 4vw;
+        font-weight: bold;
+    }
+    #move {
+        transition: 0.3s;
+        background-color: rgba(0,255,0,0.2);
+        color: green;
+        box-shadow: 0 8px 2px rgba(0,255,0,0.5);
+    }
+    #stop {
+        transition: 0.3s;
+        background-color: rgba(255,0,0,0.2);
+        color: red;
+        box-shadow: 0 8px 2px rgba(255,0,0,0.5);
+    }
+}
