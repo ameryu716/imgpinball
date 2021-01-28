@@ -1,5 +1,4 @@
 window.addEventListener("load",()=>{
-    alert("mobile!");
     const ball = document.getElementById("ball");
     let ballx = 0;
     let bally = 0;

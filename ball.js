@@ -1,5 +1,4 @@
 window.addEventListener("load",()=>{
-    alert("pc");
     const ball = document.getElementById("ball");
     let ballx = 0;
     let bally = 0;
