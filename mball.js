@@ -6,8 +6,8 @@ window.addEventListener("load",()=>{
     let arrowx = 1;
     let arrowy = 1;
     let startin;
-    let endx = window.outerWidth-100;
-    let endy = window.outerHeight-100;
+    let endx = window.outerWidth-150;
+    let endy = window.outerHeight-150;
 
     function start(){
         startin = setInterval(() => {
@@ -46,6 +46,7 @@ window.addEventListener("load",()=>{
 
     const movebtn = document.getElementById("move");
     const stopbtn = document.getElementById("stop");
+    const reload = document.getElementById("reload");
 
     movebtn.onclick = ()=>{
         movebtn.style.boxShadow = "0 0 0 rgba(0,255,0,0.5)";
@@ -60,6 +61,9 @@ window.addEventListener("load",()=>{
         movebtn.style.boxShadow = "0 8px 2px rgba(0,255,0,0.5)";
         movebtn.style.marginTop = "0";
         end();
+    }
+    reload.onclick = ()=>{
+        location.href = "/";
     }
     
     //画像最適化

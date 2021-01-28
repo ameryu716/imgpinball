@@ -91,22 +91,22 @@ body {
         border: solid 5px red;
     }
     #ball {
-        width: 100px;
-        height: 100px;
-        min-height: 100px;
-        min-width: 100px;
+        width: 150px;
+        height: 150px;
+        min-height: 150px;
+        min-width: 150px;
     }
     #ball img{
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
     }
     .imageplus-icon {
-        font-size: 32px;
+        font-size: 38px;
     }
     .imageicon {
-        font-size: 38px;
-        padding: 25px 0;
-        margin: 8px 28px;
+        font-size: 46px;
+        padding: 45px 0;
+        margin: 8px 49px;
     }
     #operator {
         position: absolute;
@@ -132,5 +132,16 @@ body {
         background-color: rgba(255,0,0,0.2);
         color: red;
         box-shadow: 0 8px 2px rgba(255,0,0,0.5);
+    }
+    #reload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgba(0,0,255,0.2);
+        border: none;
+        color: blue;
     }
 }
