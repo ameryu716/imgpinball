@@ -63,7 +63,7 @@ window.addEventListener("load",()=>{
         end();
     }
     reload.onclick = ()=>{
-        location.href = "/";
+        location.href = "/ball.html";
     }
     
     //画像最適化
