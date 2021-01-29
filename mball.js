@@ -2,9 +2,11 @@ window.addEventListener("load",()=>{
     const ball = document.getElementById("ball");
     let ballx = 0;
     let bally = 0;
+    let ballr = 0;
     let arrowx = 1;
     let arrowy = 1;
     let startin;
+    let dancein;
     let endx = window.outerWidth-150;
     let endy = window.outerHeight-150;
 
@@ -36,30 +38,57 @@ window.addEventListener("load",()=>{
     }
     function end(){
         clearInterval(startin);
+        clearInterval(dancein);
     }
+    function dance(){
+        dancein = setInterval(()=>{
+            ballr = ballr + 5;
+        },10)
+    }
+
 
     const draw = setInterval(() => {
         ball.style.top = bally+"px";
         ball.style.left = ballx+"px";
+        ball.style.transform = "rotate("+ballr+"deg)";
     }, 10);//描画開始
 
     const movebtn = document.getElementById("move");
     const stopbtn = document.getElementById("stop");
+    const rotatebtn = document.getElementById("rotate");
     const reload = document.getElementById("reload");
 
     movebtn.onclick = ()=>{
         movebtn.style.boxShadow = "0 0 0 rgba(0,255,0,0.5)";
         movebtn.style.marginTop = "8px";
+
+        //他二つ
         stopbtn.style.boxShadow = "0 8px 2px rgba(255,0,0,0.5)";
         stopbtn.style.marginTop = "0";
+
         start();
     };
     stopbtn.onclick = ()=>{
         stopbtn.style.boxShadow = "0 0 0 rgba(255,0,0,0.5)";
         stopbtn.style.marginTop = "8px";
+
+        //他二つ
         movebtn.style.boxShadow = "0 8px 2px rgba(0,255,0,0.5)";
         movebtn.style.marginTop = "0";
+        rotatebtn.style.boxShadow = "0 8px 2px rgba(0,0,255,0.5)";
+        rotatebtn.style.marginTop = "0";
         end();
+    }
+    rotatebtn.onclick = ()=>{
+        rotatebtn.style.boxShadow = "0 0 0 rgba(0,0,255,0.5)";
+        rotatebtn.style.marginTop = "8px";
+
+        //他二つ
+        movebtn.style.boxShadow = "0 8px 2px rgba(0,255,0,0.5)";
+        stopbtn.style.boxShadow = "0 8px 2px rgba(255,0,0,0.5)";
+        movebtn.style.marginTop = "0";
+        stopbtn.style.marginTop = "0";
+        dance();
     }
     reload.onclick = ()=>{
         location.href = "/ball.html";
