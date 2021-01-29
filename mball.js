@@ -80,6 +80,7 @@ window.addEventListener("load",()=>{
                     alert("NG!");
                 });
             })
+            .catch(e => alert(e));
         } else {
             alert('Web Share API is not supported!!');
             // Web Share API未対応ブラウザ向けのフォールバックを実装する。
