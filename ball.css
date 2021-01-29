@@ -167,4 +167,7 @@ body {
         color: blue;
         font-size: 6vw;
     }
+    #twitter-share {
+        opacity: 0;
+    }
 }

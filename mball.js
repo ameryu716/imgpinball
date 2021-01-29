@@ -38,16 +38,16 @@ window.addEventListener("load",()=>{
             ballx = ballx + 5*arrowx;
             bally = bally + 5*arrowy;
         }, 10);
-    }
+    } //動く
     function end(){
         clearInterval(startin);
         clearInterval(dancein);
-    }
+    } //停止
     function dance(){
         dancein = setInterval(()=>{
             ballr = ballr + 5;
         },10)
-    }
+    } //回る
 
 
     const draw = setInterval(() => {
@@ -86,7 +86,7 @@ window.addEventListener("load",()=>{
             })
             .catch(e => alert(e));
         } else {
-            alert('Web Share API is not supported!!');
+            document.getElementById("twitter-share").getElementsByTagName("a")[0].click();
             // Web Share API未対応ブラウザ向けのフォールバックを実装する。
         }
     }
@@ -108,7 +108,7 @@ window.addEventListener("load",()=>{
         stopbtn.style.marginTop = "0";
         start();
         notouch();
-    };
+    } //開始
     stopbtn.onclick = ()=>{
         stopbtn.style.boxShadow = "0 0 0 rgba(255,0,0,0.5)";
         stopbtn.style.marginTop = "8px";
@@ -119,7 +119,7 @@ window.addEventListener("load",()=>{
         rotatebtn.style.marginTop = "0";
         end();
         notouch();
-    }
+    } //停止
     rotatebtn.onclick = ()=>{
         rotatebtn.style.boxShadow = "0 0 0 rgba(0,0,255,0.5)";
         rotatebtn.style.marginTop = "8px";
@@ -131,15 +131,15 @@ window.addEventListener("load",()=>{
         stopbtn.style.marginTop = "0";
         dance();
         notouch();
-    }
+    } //回す
     sharebtn.onclick = ()=>{
         share();
         notouch();
-    }
+    } //共有
     reload.onclick = ()=>{
         location.href = "/ball.html";
         notouch();
-    }
+    } //リロード
     
     //画像最適化
     function imgOptimization(){
