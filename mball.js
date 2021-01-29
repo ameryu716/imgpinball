@@ -53,9 +53,31 @@ window.addEventListener("load",()=>{
         ball.style.transform = "rotate("+ballr+"deg)";
     }, 10);//描画開始
 
+    function share(){
+        if (navigator.share) {
+            navigator.share({
+                title: '画像ピンボール',
+                text: 'お前踊ってないのか？俺は今、こいつと踊ってるぜ。',
+                url: 'https://imgpinball.vercel.app/ball.html',
+            })
+            .then(() => {
+                // シェアしたら実行される
+                alert("ok!");
+            })
+            .catch((error) => {
+                // シェアせず終了した場合もここに入ってくる。
+                alert("NG!");
+            });
+        } else {
+            alert('Web Share API is not supported!!');
+            // Web Share API未対応ブラウザ向けのフォールバックを実装する。
+        }
+    }
+
     const movebtn = document.getElementById("move");
     const stopbtn = document.getElementById("stop");
     const rotatebtn = document.getElementById("rotate");
+    const sharebtn = document.getElementById("share");
     const reload = document.getElementById("reload");
 
     movebtn.onclick = ()=>{
@@ -89,6 +111,9 @@ window.addEventListener("load",()=>{
         movebtn.style.marginTop = "0";
         stopbtn.style.marginTop = "0";
         dance();
+    }
+    sharebtn.onclick = ()=>{
+        share();
     }
     reload.onclick = ()=>{
         location.href = "/ball.html";
@@ -146,4 +171,6 @@ window.addEventListener("load",()=>{
     }
     imgOptimization();
 
+    
+      
 })
