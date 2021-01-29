@@ -10,6 +10,9 @@ window.addEventListener("load",()=>{
     let endx = window.outerWidth-150;
     let endy = window.outerHeight-150;
 
+    let opacityflag = false;
+    let touchflag = false;
+
     function start(){
         startin = setInterval(() => {
             if(ballx < 0 || ballx > endx){
@@ -94,6 +97,8 @@ window.addEventListener("load",()=>{
     const sharebtn = document.getElementById("share");
     const reload = document.getElementById("reload");
 
+
+
     movebtn.onclick = ()=>{
         movebtn.style.boxShadow = "0 0 0 rgba(0,255,0,0.5)";
         movebtn.style.marginTop = "8px";
@@ -101,19 +106,19 @@ window.addEventListener("load",()=>{
         //他二つ
         stopbtn.style.boxShadow = "0 8px 2px rgba(255,0,0,0.5)";
         stopbtn.style.marginTop = "0";
-
         start();
+        notouch();
     };
     stopbtn.onclick = ()=>{
         stopbtn.style.boxShadow = "0 0 0 rgba(255,0,0,0.5)";
         stopbtn.style.marginTop = "8px";
-
         //他二つ
         movebtn.style.boxShadow = "0 8px 2px rgba(0,255,0,0.5)";
         movebtn.style.marginTop = "0";
         rotatebtn.style.boxShadow = "0 8px 2px rgba(0,0,255,0.5)";
         rotatebtn.style.marginTop = "0";
         end();
+        notouch();
     }
     rotatebtn.onclick = ()=>{
         rotatebtn.style.boxShadow = "0 0 0 rgba(0,0,255,0.5)";
@@ -125,12 +130,15 @@ window.addEventListener("load",()=>{
         movebtn.style.marginTop = "0";
         stopbtn.style.marginTop = "0";
         dance();
+        notouch();
     }
     sharebtn.onclick = ()=>{
         share();
+        notouch();
     }
     reload.onclick = ()=>{
         location.href = "/ball.html";
+        notouch();
     }
     
     //画像最適化
@@ -185,6 +193,20 @@ window.addEventListener("load",()=>{
     }
     imgOptimization();
 
-    
-      
+    const operator = document.getElementById("operator");
+    const border = document.getElementsByClassName("border")[0];
+
+    border.onclick = ()=>{
+        notouch();
+    }
+    function notouch(){
+        if(touchflag){
+            clearTimeout(opacityflag);
+        }
+        operator.style.opacity = "1";
+        opacityflag = setTimeout(() => {
+            operator.style.opacity = "0.5";
+        }, 5000);
+        touchflag = true;
+    }
 })
