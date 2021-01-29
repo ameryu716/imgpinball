@@ -204,7 +204,7 @@ window.addEventListener("load",()=>{
         }
         operator.style.opacity = "1";
         opacityflag = setTimeout(() => {
-            operator.style.opacity = "0.5";
+            operator.style.opacity = "0.3";
         }, 5000);
         touchflag = true;
     }
