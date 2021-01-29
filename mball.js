@@ -64,7 +64,6 @@ window.addEventListener("load",()=>{
             canvas.height = img.naturalHeight;
             let ctx = canvas.getContext('2d');
             ctx.drawImage(img,0,0,img.naturalWidth,img.naturalHeight,0,0,canvas.width,canvas.height);
-            document.getElementsByClassName("border")[0].appendChild(canvas);
             canvas.toBlob((blob) => {
                 const shareImg = new File([blob], 'share.png', {type: 'image/png'})
                 navigator.share({
