@@ -86,7 +86,8 @@ window.addEventListener("load",()=>{
             })
             .catch(e => alert(e));
         } else {
-            document.getElementById("twitter-share").getElementsByTagName("a")[0].click();
+            // document.getElementById("twitter-share-button").click();
+            document.getElementById("share3").click();
             // Web Share API未対応ブラウザ向けのフォールバックを実装する。
         }
     }
@@ -96,8 +97,6 @@ window.addEventListener("load",()=>{
     const rotatebtn = document.getElementById("rotate");
     const sharebtn = document.getElementById("share");
     const reload = document.getElementById("reload");
-
-
 
     movebtn.onclick = ()=>{
         movebtn.style.boxShadow = "0 0 0 rgba(0,255,0,0.5)";
