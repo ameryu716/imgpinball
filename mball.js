@@ -56,12 +56,14 @@ window.addEventListener("load",()=>{
     function share(){
         if (navigator.share) {
             //画像コピー＆canvas生成
-            const img = document.getElementById("imgprev");
+            const imgprev = document.getElementById("imgprev");
+            const img = imgprev.getElementsByTagName("img")[0];
+            console.log(img);
             const canvas = document.createElement("canvas");
             canvas.width = img.naturalWidth;
             canvas.height = img.naturalHeight;
             let ctx = canvas.getContext('2d');
-            ctx.drawImage(img,0,0,img.naturalWidth,img.naturalHeight,0,0,canvas.width,canvaas.height);
+            ctx.drawImage(img,0,0,img.naturalWidth,img.naturalHeight,0,0,canvas.width,canvas.height);
             document.getElementsByClassName("border")[0].appendChild(canvas);
             canvas.toBlob((blob) => {
                 const shareImg = new File([blob], 'share.png', {type: 'image/png'})
