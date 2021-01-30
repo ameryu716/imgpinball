@@ -182,10 +182,24 @@ body {
     }
 }
 
+@media screen and (max-height: 850px){
+    #noimgspan {
+        font-size: 4vw;
+    }
+    #reload {
+        height: 10vw;
+        width: 10vw;
+        font-size: 6vw;
+    }
+}
+
 /* ipad */
-@media screen and (max-width: 1024px){
+@media screen and (min-height: 850px){
     body {
         margin: 0;
+    }
+    #noimgspan {
+        font-size: 2vw;
     }
     .border {
         width: 100vw;
@@ -259,8 +273,8 @@ body {
         position: absolute;
         top: 0;
         right: 0;
-        height: 100px;
-        width: 100px;
+        height: 10vw;
+        width: 10vw;
         border-radius: 100%;
         background-color: rgba(0,0,255,0.2);
         border: none;
