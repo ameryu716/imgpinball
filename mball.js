@@ -97,6 +97,7 @@ window.addEventListener("load",()=>{
     const rotatebtn = document.getElementById("rotate");
     const sharebtn = document.getElementById("share");
     const reload = document.getElementById("reload");
+    const noimgspan = document.getElementById("noimgspan");
 
     movebtn.onclick = ()=>{
         movebtn.style.boxShadow = "0 0 0 rgba(0,255,0,0.5)";
@@ -161,6 +162,7 @@ window.addEventListener("load",()=>{
                         prevzone.removeChild(prevzone.firstChild);
                     }
                     ball.style.border = "none";
+                    noimgspan.style.display = "none";
                     prevzone.appendChild(img); // #previewの中に追加
     
                 }
