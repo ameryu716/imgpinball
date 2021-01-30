@@ -71,7 +71,7 @@ window.addEventListener("load",()=>{
                 const shareImg = new File([blob], 'share.png', {type: 'image/png'})
                 navigator.share({
                     title: '画像ピンボール',
-                    text: 'お前踊ってないのか？俺は今、こいつと踊ってるぜ。',
+                    text: 'お前踊ってないのか？俺は今、こいつと踊ってるぜ。 #画像ピンボール',
                     url: 'https://imgpinball.vercel.app/ball.html',
                     files: [shareImg]
                 })
