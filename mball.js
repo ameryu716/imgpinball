@@ -217,7 +217,6 @@ window.addEventListener("load",()=>{
         touchcount++
         if(touchcount > 1){
             evt.preventDefault();
-            border.style.border= "solid red 1px";
         }
     },false)
 

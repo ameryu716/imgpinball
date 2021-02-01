@@ -184,6 +184,22 @@ body {
         color: blue;
         font-size: 6vw;
     }
+    #reloadsmall {
+        display: none;
+        position: absolute;
+        right: 70%;
+        text-align: right;
+        top: 80%;
+        white-space: nowrap;
+        color: cornflowerblue;
+        background-color: #fff;
+        padding: 3px;
+        border-radius: 5px;
+        border: solid 1px dodgerblue;
+    }
+    #reload:hover #reloadsmall{
+        display: block;
+    }
     #twitter-share {
         opacity: 0;
     }
