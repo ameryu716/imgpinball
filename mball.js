@@ -1,17 +1,17 @@
 window.addEventListener("load",()=>{
     const ball = document.getElementById("ball");
-    let ballx = 0;
-    let bally = 0;
-    let ballr = 0;
-    let arrowx = 1;
-    let arrowy = 1;
-    let startin;
-    let dancein;
-    let endx = window.outerWidth-150;
-    let endy = window.outerHeight-150;
+    let ballx = 0; //ボール横座標
+    let bally = 0; //ボール縦座標
+    let ballr = 0; //ボール回転値
+    let arrowx = 1; //ボール進行(x)方向正負
+    let arrowy = 1; //ボール進行(y)方向正負
+    let startin; //setinterval用
+    let dancein; //setinterval用
+    let endx = window.outerWidth-150; //フィールド限界値x
+    let endy = window.outerHeight-150; //フィールド限界値y
 
-    let opacityflag = false;
-    let touchflag = false;
+    let opacityflag = false; //操作なしの時間判定
+    let touchflag = false; //タッチするまでパネル透明化ギミックを無効にする
 
     function start(){
         startin = setInterval(() => {
@@ -49,7 +49,6 @@ window.addEventListener("load",()=>{
         },10)
     } //回る
 
-
     const draw = setInterval(() => {
         ball.style.top = bally+"px";
         ball.style.left = ballx+"px";
@@ -77,11 +76,9 @@ window.addEventListener("load",()=>{
                 })
                 .then(() => {
                     // シェアしたら実行される
-                    alert("ok!");
                 })
                 .catch((error) => {
                     // シェアせず終了した場合もここに入ってくる。
-                    alert("NG!");
                 });
             })
             .catch(e => alert(e));
@@ -100,19 +97,21 @@ window.addEventListener("load",()=>{
     const noimgspan = document.getElementById("noimgspan");
 
     movebtn.onclick = ()=>{
+        //押したようなスタイル
         movebtn.style.boxShadow = "0 0 0 rgba(0,255,0,0.5)";
         movebtn.style.marginTop = "8px";
 
-        //他二つ
+        //他二つのスタイルを戻す
         stopbtn.style.boxShadow = "0 8px 2px rgba(255,0,0,0.5)";
         stopbtn.style.marginTop = "0";
         start();
         notouch();
     } //開始
     stopbtn.onclick = ()=>{
+        //押したようなスタイル
         stopbtn.style.boxShadow = "0 0 0 rgba(255,0,0,0.5)";
         stopbtn.style.marginTop = "8px";
-        //他二つ
+        //他二つのスタイルを戻す
         movebtn.style.boxShadow = "0 8px 2px rgba(0,255,0,0.5)";
         movebtn.style.marginTop = "0";
         rotatebtn.style.boxShadow = "0 8px 2px rgba(0,0,255,0.5)";
@@ -121,10 +120,10 @@ window.addEventListener("load",()=>{
         notouch();
     } //停止
     rotatebtn.onclick = ()=>{
+        //押したようなスタイル
         rotatebtn.style.boxShadow = "0 0 0 rgba(0,0,255,0.5)";
         rotatebtn.style.marginTop = "8px";
-
-        //他二つ
+        //他二つのスタイルを戻す
         movebtn.style.boxShadow = "0 8px 2px rgba(0,255,0,0.5)";
         stopbtn.style.boxShadow = "0 8px 2px rgba(255,0,0,0.5)";
         movebtn.style.marginTop = "0";
@@ -141,7 +140,7 @@ window.addEventListener("load",()=>{
         notouch();
     } //リロード
     
-    //画像最適化
+    //画像読み込み処理
     function imgOptimization(){
         const uploadlabel = document.getElementById("uploadlabel");
         const imguploads = document.getElementById("imguploads");
@@ -195,6 +194,7 @@ window.addEventListener("load",()=>{
     }
     imgOptimization();
 
+    //一定時間操作なしでパネルの透明度を下げる
     const operator = document.getElementById("operator");
     const border = document.getElementsByClassName("border")[0];
 
@@ -219,8 +219,6 @@ window.addEventListener("load",()=>{
             evt.preventDefault();
         }
     },false)
-
-
     setInterval(()=>{
         touchcount = 0;
     },500)
