@@ -182,6 +182,7 @@ window.addEventListener("load",()=>{
             handleImageSelect();
             imageicon[0].style.opacity = "0";
             imageplusicon[0].style.opacity = "0";
+            document.getElementById("messagepng").style.display = "none";
             uploadlabel.addEventListener("mouseover",()=>{
                 imageicon[0].style.opacity = "1";
                 imageplusicon[0].style.opacity = "1";
@@ -210,4 +211,21 @@ window.addEventListener("load",()=>{
         }, 5000);
         touchflag = true;
     }
+
+    //ズーム禁止
+    border.addEventListener("touchstart",(evt)=>{
+        touchcount++
+        if(touchcount > 1){
+            evt.preventDefault();
+            border.style.border= "solid red 1px";
+        }
+    },false)
+
+
+    setInterval(()=>{
+        touchcount = 0;
+    },500)
+
+
+
 })

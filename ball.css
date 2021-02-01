@@ -8,6 +8,7 @@ body {
     border: solid 10px red;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
 }
 #ball {
     transition: 0.05s;
@@ -72,7 +73,7 @@ body {
     color: #0000008c;
 }
 
-#ball img{
+#ball img:not(#messagepng){
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -93,6 +94,12 @@ body {
     font-size: 2vw;
 }
 
+#messagepng {
+    position: absolute;
+    top: 90%;
+    left: 55%;
+}
+
 @media screen and (max-width: 480px){
     body {
         margin: 0;
@@ -109,7 +116,7 @@ body {
         min-height: 150px;
         min-width: 150px;
     }
-    #ball img{
+    #ball img:not(#messagepng){
         width: 150px;
         height: 150px;
     }
@@ -213,7 +220,7 @@ body {
         min-height: 150px;
         min-width: 150px;
     }
-    #ball img{
+    #ball img:not(#messagepng){
         width: 150px;
         height: 150px;
     }
