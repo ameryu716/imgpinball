@@ -1,22 +1,22 @@
 window.addEventListener("load",()=>{
-    const ball = document.getElementById("ball");
-    let ballx = 0;
-    let bally = 0;
-    let ballr = 0;
-    let arrowx = 1;
-    let arrowy = 1;
-    let startin;
-    let dancein;
-    let endx = window.outerWidth-150;
-    let endy = window.outerHeight-150;
+    const ball:HTMLDivElement = <HTMLDivElement>document.getElementById("ball");
+    let ballx:number = 0;
+    let bally:number = 0;
+    let ballr:number = 0;
+    let arrowx:number = 1;
+    let arrowy:number = 1;
+    let startin;//setinterval
+    let dancein;//setinterval
+    let endx:number = window.outerWidth-150;
+    let endy:number = window.outerHeight-150;
 
-    let opacityflag = false;
-    let touchflag = false;
+    let opacityflag;//settimeout
+    let touchflag:boolean = false;
 
-    function start(){
+    function start():void{
         startin = setInterval(() => {
             if(ballx < 0 || ballx > endx){
-                
+
                 arrowx = -1*arrowx;
                 if(ballx < 0){
                     ballx = 10;
@@ -26,7 +26,7 @@ window.addEventListener("load",()=>{
                 }
             }
             if(bally <0||bally > endy){
-                
+
                 arrowy = -1*arrowy;
                 if(bally < 0){
                     bally = 10;
@@ -39,11 +39,11 @@ window.addEventListener("load",()=>{
             bally = bally + 5*arrowy;
         }, 10);
     } //動く
-    function end(){
+    function end():void{
         clearInterval(startin);
         clearInterval(dancein);
     } //停止
-    function dance(){
+    function dance():void{
         dancein = setInterval(()=>{
             ballr = ballr + 5;
         },10)
@@ -56,7 +56,7 @@ window.addEventListener("load",()=>{
         ball.style.transform = "rotate("+ballr+"deg)";
     }, 10);//描画開始
 
-    function share(){
+    function share():void{
         if (navigator.share) {
             //画像コピー＆canvas生成
             const imgprev = document.getElementById("imgprev");
@@ -68,7 +68,7 @@ window.addEventListener("load",()=>{
             let ctx = canvas.getContext('2d');
             ctx.drawImage(img,0,0,img.naturalWidth,img.naturalHeight,0,0,canvas.width,canvas.height);
             canvas.toBlob((blob) => {
-                const shareImg = new File([blob], 'share.png', {type: 'image/png'})
+                const shareImg = new File([blob], 'share.png', {type: 'image/png'});
                 navigator.share({
                     title: '画像ピンボール',
                     text: 'お前踊ってないのか？俺は今、こいつと踊ってるぜ。 #画像ピンボール',
@@ -84,7 +84,7 @@ window.addEventListener("load",()=>{
                     alert("NG!");
                 });
             })
-            .catch(e => alert(e));
+            // .catch(e => alert(e));
         } else {
             // document.getElementById("twitter-share-button").click();
             document.getElementById("share3").click();
@@ -92,12 +92,12 @@ window.addEventListener("load",()=>{
         }
     }
 
-    const movebtn = document.getElementById("move");
-    const stopbtn = document.getElementById("stop");
-    const rotatebtn = document.getElementById("rotate");
-    const sharebtn = document.getElementById("share");
-    const reload = document.getElementById("reload");
-    const noimgspan = document.getElementById("noimgspan");
+    const movebtn:HTMLButtonElement = <HTMLButtonElement>document.getElementById("move");
+    const stopbtn:HTMLButtonElement = <HTMLButtonElement>document.getElementById("stop");
+    const rotatebtn:HTMLButtonElement = <HTMLButtonElement>document.getElementById("rotate");
+    const sharebtn:HTMLButtonElement = <HTMLButtonElement>document.getElementById("share");
+    const reload:HTMLButtonElement = <HTMLButtonElement>document.getElementById("reload");
+    const noimgspan:HTMLSpanElement = <HTMLSpanElement>document.getElementById("noimgspan");
 
     movebtn.onclick = ()=>{
         movebtn.style.boxShadow = "0 0 0 rgba(0,255,0,0.5)";
@@ -140,22 +140,21 @@ window.addEventListener("load",()=>{
         location.href = "./ball.html";
         notouch();
     } //リロード
-    
+
     //画像最適化
-    function imgOptimization(){
-        const uploadlabel = document.getElementById("uploadlabel");
-        const imguploads = document.getElementById("imguploads");
-        const imageicon = document.getElementsByClassName("imageicon");
-        const imageplusicon = document.getElementsByClassName("imageplus-icon");
-        
+    function imgOptimization():void{
+        const uploadlabel:HTMLLabelElement = <HTMLLabelElement>document.getElementById("uploadlabel");
+        const imguploads:HTMLInputElement = <HTMLInputElement>document.getElementById("imguploads");
+        const imageicon:HTMLCollectionOf<HTMLElement> = <HTMLCollectionOf<HTMLElement>>document.getElementsByClassName("imageicon");
+        const imageplusicon:HTMLCollectionOf<HTMLElement> = <HTMLCollectionOf<HTMLElement>>document.getElementsByClassName("imageplus-icon");
         imguploads.addEventListener('change',()=>{
             const prevzone = document.getElementById("imgprev");
             const sizelimit = 3000000;
-            function previewFile(file) {
+            function previewFile(file:File) {
                 const reader = new FileReader();
                 // URLとして読み込まれたときに実行する処理
                 reader.onload = function (e) {
-                    const imageUrl = e.target.result; // URLはevent.target.resultで呼び出せる
+                    const imageUrl = <string>e.target.result; // URLはevent.target.resultで呼び出せる
                     const img = new Image(); // img要素を作成
                     img.src = imageUrl; // URLをimg要素にセット
                     if(prevzone.hasChildNodes()){
@@ -164,11 +163,11 @@ window.addEventListener("load",()=>{
                     ball.style.border = "none";
                     noimgspan.style.display = "none";
                     prevzone.appendChild(img); // #previewの中に追加
-    
+
                 }
                 reader.readAsDataURL(file);
             }
-            
+
             const handleImageSelect = ()=>{
                 const im = imguploads.files[0];
                 if(im.size>sizelimit){
@@ -178,7 +177,7 @@ window.addEventListener("load",()=>{
                     previewFile(im);
                 }
             }
-    
+
             handleImageSelect();
             imageicon[0].style.opacity = "0";
             imageplusicon[0].style.opacity = "0";
@@ -194,13 +193,13 @@ window.addEventListener("load",()=>{
     }
     imgOptimization();
 
-    const operator = document.getElementById("operator");
-    const border = document.getElementsByClassName("border")[0];
+    const operator:HTMLDivElement = <HTMLDivElement>document.getElementById("operator");
+    const border:HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("border")[0];
 
     border.onclick = ()=>{
         notouch();
     }
-    function notouch(){
+    function notouch():void{
         if(touchflag){
             clearTimeout(opacityflag);
         }

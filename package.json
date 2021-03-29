@@ -1,0 +1,20 @@
+{
+  "name": "imgpinball",
+  "version": "1.0.0",
+  "description": "imgballmove",
+  "main": "ball.js",
+  "scripts": {
+    "test": "echo 'test'",
+    "build": "sass --style=expanded ball.scss:ball.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ameryu716/imgpinball.git"
+  },
+  "author": "ameryu716",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ameryu716/imgpinball/issues"
+  },
+  "homepage": "https://github.com/ameryu716/imgpinball#readme"
+}
