@@ -1,6 +1,7 @@
 window.addEventListener("load",()=>{
     const ball = document.getElementById("ball");
     const noimgspan = document.getElementById("noimgspan");
+    const messagepng = document.getElementById("messagepng");
     let ballx = 0;
     let bally = 0;
     let ballr = 0;
@@ -84,8 +85,8 @@ window.addEventListener("load",()=>{
                     }
                     ball.style.border = "none";
                     noimgspan.style.display = "none";
+                    messagepng.style.display = "none";
                     prevzone.appendChild(img); // #previewの中に追加
-
                 }
                 reader.readAsDataURL(file);
             }

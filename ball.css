@@ -4,20 +4,11 @@ body {
 }
 
 .border {
-<<<<<<< HEAD
   width: 100%;
   height: 99vh;
   border: solid 3px lightsteelblue;
   box-sizing: border-box;
   position: relative;
-=======
-    width: 1350px;
-    height: 600px;
-    border: solid 10px red;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
->>>>>>> f60852497bf6599499db06f3438e16dcaa7fff36
 }
 
 #ball {
@@ -39,7 +30,7 @@ body {
   position: absolute;
   overflow: hidden;
 }
-#ball img {
+#ball img:not(#messagepng) {
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -77,26 +68,18 @@ body {
   opacity: 0.7;
   transition: 0.2s;
   position: absolute;
-  font-size: 25px;
-  top: 18%;
-  left: 60%;
+  font-size: 36px;
+  top: 12%;
+  left: 70%;
   color: turquoise;
 }
 
-<<<<<<< HEAD
 .imageicon {
   display: none;
-  font-size: 40px;
-  padding: 20px 0;
-  margin: 8px 24px;
+  font-size: 72px;
+  padding: 20px 11px;
+  margin: 16px 24px;
   color: #0000008c;
-=======
-#ball img:not(#messagepng){
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 100%;
->>>>>>> f60852497bf6599499db06f3438e16dcaa7fff36
 }
 
 #operator {
@@ -109,14 +92,13 @@ body {
 
 #noimgspan {
   position: absolute;
-  bottom: 12px;
+  bottom: 10%;
   white-space: nowrap;
-  left: 12px;
+  left: 19%;
   color: rgba(0, 0, 0, 0.8);
   font-size: 16px;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 480px) {
   body {
     margin: 0;
@@ -222,117 +204,12 @@ body {
     width: 10vw;
     font-size: 6vw;
   }
-=======
-#messagepng {
+
+  #messagepng {
     position: absolute;
     top: 90%;
     left: 55%;
-}
-
-@media screen and (max-width: 480px){
-    body {
-        margin: 0;
-    }
-    .border {
-        width: 100vw;
-        height: 100vh;
-        border: solid 5px red;
-        border: none;
-    }
-    #ball {
-        width: 150px;
-        height: 150px;
-        min-height: 150px;
-        min-width: 150px;
-    }
-    #ball img:not(#messagepng){
-        width: 150px;
-        height: 150px;
-    }
-    .imageplus-icon {
-        font-size: 38px;
-    }
-    .imageicon {
-        font-size: 46px;
-        padding: 45px 0;
-        margin: 8px 49px;
-    }
-    #operator {
-        position: absolute;
-        bottom: 10%;
-        right: 10%;
-        display: flex;
-        flex-wrap: wrap;
-        width: 180px;
-        transition: 1s;
-    }
-    #operator button {
-        width: 90px;
-        height: 60px;
-        border: none;
-        font-size: 4vw;
-        font-weight: bold;
-    }
-    #move {
-        transition: 0.3s;
-        background-color: rgba(0,255,0,0.2);
-        color: green;
-        box-shadow: 0 8px 2px rgba(0,255,0,0.5);
-    }
-    #stop {
-        transition: 0.3s;
-        background-color: rgba(255,0,0,0.2);
-        color: red;
-        box-shadow: 0 8px 2px rgba(255,0,0,0.5);
-    }
-    #rotate {
-        transition: 0.3s;
-        background-color: rgba(0,0,255,0.2);
-        color: blue;
-        box-shadow: 0 8px 2px rgba(0,0,255,0.5);
-    }
-    #share {
-        transition: 0.3s;
-        background-color: rgba(255, 123, 0, 0.295);
-        color: coral;
-        box-shadow: 0 8px 2px rgba(255, 102, 0, 0.5);
-    }
-    #share i {
-        font-size: 6vw;
-    }
-    #reload {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 50px;
-        width: 50px;
-        border-radius: 100%;
-        background-color: rgba(0,0,255,0.2);
-        border: none;
-        color: blue;
-        font-size: 6vw;
-    }
-    #reloadsmall {
-        display: none;
-        position: absolute;
-        right: 70%;
-        text-align: right;
-        top: 80%;
-        white-space: nowrap;
-        color: cornflowerblue;
-        background-color: #fff;
-        padding: 3px;
-        border-radius: 5px;
-        border: solid 1px dodgerblue;
-    }
-    #reload:hover #reloadsmall{
-        display: block;
-    }
-    #twitter-share {
-        opacity: 0;
-    }
->>>>>>> f60852497bf6599499db06f3438e16dcaa7fff36
+  }
 }
 /* ipad */
 @media screen and (min-height: 850px) {
@@ -442,99 +319,4 @@ body {
   }
 }
 
-<<<<<<< HEAD
 /*# sourceMappingURL=ball.css.map */
-=======
-/* ipad */
-@media screen and (min-height: 850px){
-    body {
-        margin: 0;
-    }
-    #noimgspan {
-        font-size: 2vw;
-    }
-    .border {
-        width: 100vw;
-        height: 100vh;
-        border: solid 5px red;
-        border: none;
-    }
-    #ball {
-        width: 150px;
-        height: 150px;
-        min-height: 150px;
-        min-width: 150px;
-    }
-    #ball img:not(#messagepng){
-        width: 150px;
-        height: 150px;
-    }
-    .imageplus-icon {
-        font-size: 38px;
-    }
-    .imageicon {
-        font-size: 46px;
-        padding: 45px 0;
-        margin: 8px 49px;
-    }
-    #operator {
-        position: absolute;
-        bottom: 10%;
-        right: 10%;
-        display: flex;
-        flex-wrap: wrap;
-        width: 180px;
-        transition: 1s;
-    }
-    #operator button {
-        width: 90px;
-        height: 60px;
-        border: none;
-        font-size: 4vw;
-        font-weight: bold;
-    }
-    #move {
-        transition: 0.3s;
-        background-color: rgba(0,255,0,0.2);
-        color: green;
-        box-shadow: 0 8px 2px rgba(0,255,0,0.5);
-    }
-    #stop {
-        transition: 0.3s;
-        background-color: rgba(255,0,0,0.2);
-        color: red;
-        box-shadow: 0 8px 2px rgba(255,0,0,0.5);
-    }
-    #rotate {
-        transition: 0.3s;
-        background-color: rgba(0,0,255,0.2);
-        color: blue;
-        box-shadow: 0 8px 2px rgba(0,0,255,0.5);
-    }
-    #share {
-        transition: 0.3s;
-        background-color: rgba(255, 123, 0, 0.295);
-        color: coral;
-        box-shadow: 0 8px 2px rgba(255, 102, 0, 0.5);
-    }
-    #share i {
-        font-size: 6vw;
-    }
-    #reload {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100px;
-        width: 100px;
-        border-radius: 100%;
-        background-color: rgba(0,0,255,0.2);
-        border: none;
-        color: blue;
-        font-size: 6vw;
-    }
-    #twitter-share {
-        opacity: 0;
-    }
-}
->>>>>>> f60852497bf6599499db06f3438e16dcaa7fff36
